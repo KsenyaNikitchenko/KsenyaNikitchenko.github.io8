@@ -1,0 +1,91 @@
+body{
+    font-family: Sabon;
+    font-weight: 500;
+}
+.button{
+    margin-top: 40px;
+    text-align: center;
+}
+.button a{
+    background-color: darkcyan;
+    padding: 20px 50px;
+    font-size: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+.pop-up{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 2;
+    transform: translateY(-44.5%) scale(0);
+    transition: .4s ease-in-out;
+}
+.pop-up.active{
+    transform: translateY(0%) scale(100%);
+    background-color: rgba(0, 0, 0, .8);
+}
+.pop-up_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.pop-up_body{
+    display: block;
+    margin: auto;
+    width: 400px;
+    background-color: rgb(180, 244, 244);
+    border-radius: 10px;
+    text-align: center;
+    padding: 50px 15px;
+    position: relative;
+}
+.pop-up_body p{
+    font-family: Trade Gothic;
+    font-size: 25px;
+    color: black;
+    margin-bottom: 20px;
+}
+.pop-up_body input{
+    margin: 25px auto 0px auto;
+    width: 330px;
+    padding: 15px 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .8);
+}
+.pop-up textarea{
+    margin: 25px auto 0px auto;
+    padding: 15px 20px;
+    width: 330px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    resize: vertical;
+}
+.pop-up_body button{
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    margin: 60px auto 0px auto;
+    padding: 20px auto;
+    font-size: 18px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    background-color: darkcyan;
+}
+.pop-up_close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 25px;
+    font-weight: 900;
+    cursor: pointer;
+}
