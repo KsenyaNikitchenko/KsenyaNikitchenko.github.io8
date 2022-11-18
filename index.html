@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Форма</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="button">
+        <a href="#" id="open_pop-up">Открыть форму</a>
+    </div>
+    <div class="pop-up" id="pop-up">
+        <div class="pop-up_container">
+            <div class="pop-up_body" id="pop-up_body">
+                <p>Заполните форму</p>
+                <form action="#" method="POST" id="form">
+                    <input type="text" placeholder="Введите имя" name="name">
+                    <input type="email" placeholder="Введите email" name="email">
+                    <textarea name="message" placeholder="Напишите свой отзыв"></textarea>
+                    <input type="submit" value="Отправить отзыв">
+                </form>
+                <div class="pop-up_close" id="pop-up_close">&#215</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
