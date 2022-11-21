@@ -10,24 +10,23 @@
 
 <body>
     <div class="button">
-        <a href="#" id="open_pop-up">Открыть форму</a>
+        <button id="open_pop-up">Открыть форму</button>
     </div>
     <div class="pop-up" id="pop-up">
-        <div class="pop-up_container">
-            <div class="pop-up_body" id="pop-up_body">
-                <p>Заполните форму</p>
-                <form action="#" method="POST" id="form">
-                    <input type="text" placeholder="Введите имя" name="name">
-                    <input type="email" placeholder="Введите email" name="email">
-                    <textarea name="message" placeholder="Напишите свой отзыв"></textarea>
-                    <input type="submit" value="Отправить отзыв">
-                </form>
-                <div class="pop-up_close" id="pop-up_close">&#215</div>
-            </div>
+        <div class="pop-up_body" id="pop-up_body">
+            <p>Заполните форму</p>
+            <form id="form">
+                <input type="text" placeholder="Введите имя" name="name" class="name" required>
+                <input type="email" placeholder="Введите email" name="email" class="email" required>
+                <textarea name="message" placeholder="Напишите свой отзыв" class="message" required></textarea><br>
+                <input type="checkbox" name="checkbox" class="checkbox" required>
+                <label for="checkbox">Согласие на обработку персональных даных</label>
+                <input type="submit" class="button_submit" value="Отправить отзыв">
+            </form>
+            <div class="pop-up_close" id="pop-up_close">&#215</div>
         </div>
     </div>
-
     <script src="form.js"></script>
 </body>
-
+    
 </html>
