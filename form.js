@@ -2,9 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const openPopUp = document.getElementById('open_pop-up');
     const closePopUp = document.getElementById('pop-up_close');
     const PopUp = document.getElementById('pop-up');
-    openPopUp.addEventListener('click', () => {
+    openPopUp.addEventListener('click', function(e) {
+        e.preventDefault();
         PopUp.classList.add('active');
-        history.pushState({ page: 1 }, '', '?form');
+        window.history.pushState({ page: 2 }, '', '?form');
+        onpopstate=(event)=>{
+            window.history.go();
+        };
     });
     closePopUp.addEventListener('click', () => {
         PopUp.classList.remove('active');
