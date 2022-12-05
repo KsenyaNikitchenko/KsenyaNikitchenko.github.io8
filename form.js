@@ -2,16 +2,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const openPopUp = document.getElementById('open_pop-up');
     const closePopUp = document.getElementById('pop-up_close');
     const PopUp = document.getElementById('pop-up');
-    openPopUp.addEventListener('click', function(e) {
+    console.log(this.location.search);
+    openPopUp.addEventListener('click', function(e){
         e.preventDefault();
         PopUp.classList.add('active');
         window.history.pushState({ page: 2 }, '', '?form');
         onpopstate=(event)=>{
             window.history.go();
         };
+        console.log(this.location);
     });
     closePopUp.addEventListener('click', () => {
         PopUp.classList.remove('active');
+        window.history.go(-1);
+        //console.log(this.location.search);
     });
     const form = document.getElementById('form');
     const formFields = form.elements;
@@ -33,9 +37,27 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.log(error))    
     });
+    //Переход вперёд и назад по стрелочкам
+    window.addEventListener('popstate', function(e){
+        if(this.location.search=='?form'){
+            PopUp.classList.add('active');
+        } else{
+            PopUp.classList.remove('active');
+            window.history.go(-1);
+        }
+    });
     //После отправки формы localeStorage очищается
     function cleareStorage() {
         localStorage.clear();
+        for (let i = 0; i < formFields.length; i++) {
+            if (formFields[i].type !== 'submit') {
+                if (formFields[i].type == 'checked') {
+                    formFields[i].checked = "";
+                } else {
+                    formFields[i].value ="";
+                }
+            }
+        }
     }
     //Сохранение полей в localeStorage
     function saveStorage() {
@@ -53,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function chekStorage() {
         for (let i = 0; i < formFields.length; i++) {
             if (formFields[i].type !== 'submit') {
-                if (formFields[i].type === 'checked') {
+                if (formFields[i].type == 'checked') {
                     formFields[i].checked = localStorage.getItem(formFields[i].name);
                     json[this.name] = this.checked;
                 } else {
