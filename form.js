@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         onpopstate=(event)=>{
             window.history.go();
         };
-        console.log(this.location);
     });
     closePopUp.addEventListener('click', () => {
         PopUp.classList.remove('active');
         window.history.go(-1);
-        //console.log(this.location.search);
     });
     const form = document.getElementById('form');
     const formFields = form.elements;
